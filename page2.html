@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page 2</title>
+    <script>
+      window.addEventListener('pageshow', function(event) {
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+          var bfcache = window.sessionStorage.getItem('bfcache');
+          if (bfcache === 'true') {
+            // Page is restored from BFCache
+            console.log('Page 2 restored from BFCache');
+            // Perform necessary actions here
+          }
+          window.sessionStorage.removeItem('bfcache');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Page 2</h1>
+    <p>This is page 2.</p>
+    <a href="index.html">Go back to Index</a>
+  </body>
+</html>
